@@ -1,0 +1,21 @@
+#if __APPLE_CC__
+#define VSTGUI_NEW_CFILESELECTOR 1
+#define ENABLE_VST_EXTENSION_IN_VSTGUI 1
+#else
+#define VSTGUI_USES_UTF8 0
+#define USE_LIBPNG 1
+#define png_set_gray_1_2_4_to_8 png_set_expand_gray_1_2_4_to_8
+#endif
+#define VSTGUI_ENABLE_DEPRECATED_METHODS 1
+#define USE_NAMESPACE 0
+
+#if _MSC_VER
+#if defined(_DEBUG) || defined(DEBUG)
+#define assert(x) \
+	if (!(x)) { \
+		DebugBreak(); \
+	}
+#else
+#define assert(x)
+#endif
+#endif
